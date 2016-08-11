@@ -146,7 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\musicalnotationprocessor.cpp" />
+    <ClCompile Include="musicalnotationprocessor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="piano.txt" />

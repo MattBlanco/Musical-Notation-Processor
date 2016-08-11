@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\musicalnotationprocessor.cpp">
+    <ClCompile Include="musicalnotationprocessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

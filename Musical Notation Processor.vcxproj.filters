@@ -31,5 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="piano.txt" />
+    <Text Include="canon.txt" />
   </ItemGroup>
 </Project>

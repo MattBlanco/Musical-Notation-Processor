@@ -149,6 +149,7 @@
     <ClCompile Include="musicalnotationprocessor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="canon.txt" />
     <Text Include="piano.txt" />
   </ItemGroup>
   <ItemGroup>

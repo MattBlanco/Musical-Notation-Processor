@@ -26,13 +26,10 @@ https://en.wikipedia.org/wiki/Piano_key_frequencies
 
 Returns: position of a note on a piano
 *********************/
-int convertToPosition(string name) {
+int convertToPosition(string input) {
 	ifstream inFile;
-	string line, input, target;
+	string line, target;
 	int position;
-
-	cout << "Please enter a scientific name: ";
-	cin >> input;
 
 	//Contains all the scientific words and note positions
 	inFile.open("piano.txt");
@@ -56,6 +53,8 @@ int convertToPosition(string name) {
 		cout << "Unable to open file";
 	}
 }
+
+
 
 /********************
 Function: noteToDuration(string note, int BPM)
@@ -92,4 +91,38 @@ double noteToDuration(char note, int BPM) {
 
 
 int main(void) {
+	ifstream sheet;
+	string music;
+
+	string line;
+	string pitch;
+	char note;
+	
+	int position;
+	int freq;
+	int time;
+	int BPM;
+
+	cout << "Enter the name of a text file." << endl;
+	cin >> music;
+
+	cout << "Enter the BPM" << endl;
+	cin >> BPM;
+
+	sheet.open(music);
+	if (sheet)
+	{
+		while (!sheet.eof()) {
+			sheet >> pitch >> note;
+			position = convertToPosition(pitch);
+			freq = convertToFreq(position);
+			time = noteToDuration(note, BPM);
+
+			Beep(freq, time);
+		}
+	}
+	else
+	{
+		cout << "Unable to open file";
+	}
 }

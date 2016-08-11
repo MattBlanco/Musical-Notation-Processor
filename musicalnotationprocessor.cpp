@@ -20,12 +20,41 @@ int convertToFreq(int position) {
 
 /********************
 Function: nameToPosition(string name)
-Converts the name of a note into its corresponding position
+Converts the name of a note into its corresponding position on a piano
+This function uses an outside text file that includes each scientfic name and note position from the following:
+https://en.wikipedia.org/wiki/Piano_key_frequencies
 
 Returns: position of a note on a piano
 *********************/
 int convertToPosition(string name) {
-	return 0;
+	ifstream inFile;
+	string line, input, target;
+	int position;
+
+	cout << "Please enter a scientific name: ";
+	cin >> input;
+
+	//Contains all the scientific words and note positions
+	inFile.open("piano.txt");
+	if (inFile)
+	{
+		while (!inFile.eof()) {
+			/* ">>" reads until the next whitespace and skips any leading or trailing whitespace. 
+			 Allowing the user to receive the name of the note(C7) and then grab the next word which would be the position(76) */
+
+			inFile >> target >> position;
+			if (target == input) {
+				inFile.close();
+				return position;
+			}
+		}
+		inFile.close();
+		cout << "you did not input a valid note.";
+	}
+	else
+	{
+		cout << "Unable to open file";
+	}
 }
 
 /********************
@@ -63,27 +92,4 @@ double noteToDuration(char note, int BPM) {
 
 
 int main(void) {
-	string line, input;
-
-	cout << "Please enter a scientific name: ";
-	cin >> input;
-
-	ifstream myfile("C:\Users\Matt\Documents\Visual Studio 2015\Projects\piano.txt");
-	if (myfile)
-	{
-		while (getline(myfile, line))
-		{
-			if (line == input)
-			{
-				getline(myfile, line);
-				cout << "The Key number for " << input;
-				cout << " is " << line;
-			}
-		}
-		myfile.close();
-	}
-	else
-	{
-		cout << "Unable to open file";
-	}
 }

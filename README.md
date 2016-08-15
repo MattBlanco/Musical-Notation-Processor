@@ -5,4 +5,5 @@ Using the computer's speakers, plays notes on a piano. Can support text files sp
 Things to do:
   1. Multiple Notes at the same time
   2. Arpeggios
+  3. GUI
   
